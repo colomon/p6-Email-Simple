@@ -5,11 +5,11 @@ BEGIN { @*INC.push: './lib'; }
 
 use Email::Simple;
 
+plan 3;
+
 my $mail-text = slurp './t/test-mails/josey-nofold';
 
 my $mail = Email::Simple.new($mail-text);
-
-plan 3;
 
 my $old-from;
 is $old-from = $mail.header('From'), 'Andrew Josey <ajosey@rdg.opengroup.org>', "We can get a header";
